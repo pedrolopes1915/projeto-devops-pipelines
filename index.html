@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container cabecalho-conteudo">
+            <span class="marca">Sistema para Cadastrar Produtos</span>
+            <span class="identificacao">Cadeira: DevOps</span>
+        </div>
+    </header>
+
+    <main class="container conteudo-principal">
+        <div class="introducao">
+            <h1>Cadastro de Produtos</h1>
+            <p>Preencha as informações abaixo para simular o cadastro de um produto.</p>
+        </div>
+
+        <section class="painel" aria-labelledby="titulo-formulario">
+            <h2 id="titulo-formulario">Novo produto</h2>
+            <form action="#" method="get">
+                <div class="campo">
+                    <label for="nome">Nome do produto</label>
+                    <input type="text" id="nome" name="nome" placeholder="Ex.: Arroz integral" required>
+                </div>
+
+                <div class="linha-campos">
+                    <div class="campo">
+                        <label for="peso">Peso (kg)</label>
+                        <input type="number" id="peso" name="peso" min="0.01" step="0.01" placeholder="Ex.: 1,00" required>
+                    </div>
+                    <div class="campo">
+                        <label for="valor">Valor (R$)</label>
+                        <input type="number" id="valor" name="valor" min="0.01" step="0.01" placeholder="Ex.: 12,50" required>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="tipo">Tipo de produto</label>
+                    <select id="tipo" name="tipo" required>
+                        <option value="" selected disabled>Selecione uma categoria</option>
+                        <option value="alimento">Alimento</option>
+                        <option value="bebida">Bebida</option>
+                        <option value="limpeza">Limpeza</option>
+                        <option value="eletronico">Eletrônico</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+
+                <button type="submit">Cadastrar produto</button>
+            </form>
+            <p class="observacao">Página de demonstração: o formulário não armazena cadastros.</p>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="container">
+            <p>Atividade de DevOps • Página criada com HTML e CSS</p>
+        </div>
+    </footer>
+</body>
+</html>
