@@ -1,4 +1,4 @@
-name: Pipeline para automacao
+name: Pipeline para automacao do Sistema
 
 on:
   push:
