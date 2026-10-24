@@ -1,4 +1,4 @@
-name: Pipeline do Painel de Produtos
+name: Pipeline para automacao
 
 on:
   push:
