@@ -1,5 +1,5 @@
 :root {
-    --cor-fundo: #444444;
+    --cor-fundo: #fcf9f9;
     --cor-cabecalho: #17365d;
     --cor-rodape: #17365d;
     --cor-botao: #2563eb;
@@ -25,10 +25,9 @@ body {
     margin: 0 auto;
 }
 
-/* Cabeçalho */
 .cabecalho {
     background-color: var(--cor-cabecalho);
-    color: rgb(84, 84, 84);
+    color: rgb(253, 250, 250);
     padding: 20px 0;
 }
 
@@ -49,7 +48,6 @@ body {
     opacity: 0.85;
 }
 
-/* Parte principal */
 .conteudo-principal {
     flex: 1;
     padding: 52px 0 64px;
@@ -71,7 +69,6 @@ h1 {
     line-height: 1.5;
 }
 
-/* Formulário */
 .painel {
     max-width: 580px;
     margin: 0 auto;
