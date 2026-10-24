@@ -1,5 +1,5 @@
 :root {
-    --cor-fundo: #fcf9f9;
+    --cor-fundo: white;
     --cor-cabecalho: #17365d;
     --cor-rodape: #17365d;
     --cor-botao: #2563eb;
@@ -27,7 +27,7 @@ body {
 
 .cabecalho {
     background-color: var(--cor-cabecalho);
-    color: rgb(253, 250, 250);
+    color: white;
     padding: 20px 0;
 }
 
