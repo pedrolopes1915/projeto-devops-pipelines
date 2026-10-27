@@ -20,15 +20,69 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.container {
-    width: min(100% - 40px, 900px);
-    margin: 0 auto;
-}
-
 .cabecalho {
     background-color: var(--cor-cabecalho);
     color: white;
-    padding: 20px 0;
+    padding: 20px 30px;
+}
+
+.cabecalho-conteudo {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    gap: 20px;
+
+    width: 100%;
+    max-width: 1200px;
+    min-height: 90px;
+    margin: 0 auto;
+}
+
+.cabecalho-conteudo img {
+    grid-column: 1;
+    grid-row: 1;
+
+    width: 280px;
+    height: 115px;
+    max-width: 100%;
+
+    object-fit: cover;
+    object-position: center;
+    justify-self: start;
+}
+
+.marca {
+    grid-column: 2;
+    grid-row: 1;
+
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.identificacao {
+    grid-column: 3;
+    grid-row: 1;
+
+    font-size: 13px;
+    text-align: right;
+    opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+    .cabecalho-conteudo {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 12px;
+    }
+
+    .cabecalho-conteudo img,
+    .marca,
+    .identificacao {
+        grid-column: 1;
+        grid-row: auto;
+        text-align: center;
+    }
 }
 
 .cabecalho-conteudo {
@@ -97,6 +151,12 @@ h1 {
     font-weight: bold;
 }
 
+.logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
 .campo input,
 .campo select {
     width: 100%;
@@ -143,7 +203,6 @@ button:hover {
     text-align: center;
 }
 
-/* Rodapé */
 .rodape {
     background-color: var(--cor-rodape);
     color: white;
@@ -157,7 +216,6 @@ button:hover {
 }
 
 @media (max-width: 540px) {
-    .cabecalho-conteudo,
     .linha-campos {
         flex-direction: column;
         align-items: stretch;
