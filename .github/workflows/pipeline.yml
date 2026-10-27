@@ -1,3 +1,4 @@
+
 name: Pipeline para automacao do Sistema
 
 on:
@@ -6,10 +7,12 @@ on:
       - main
       - develop
       - 'feature/**'
+
   pull_request:
     branches:
       - main
       - develop
+
   workflow_dispatch:
 
 permissions:
@@ -19,9 +22,11 @@ jobs:
   preparacao:
     name: '1 - Preparacao'
     runs-on: ubuntu-latest
+
     steps:
       - name: Obter codigo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+
       - name: Conferir arquivos
         run: |
           test -s index.html
@@ -32,9 +37,11 @@ jobs:
     name: '2 - Validacao'
     needs: preparacao
     runs-on: ubuntu-latest
+
     steps:
       - name: Obter codigo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+
       - name: Conferir HTML e vinculo com o CSS
         run: |
           grep -q 'lang="pt-BR"' index.html
@@ -46,9 +53,11 @@ jobs:
     name: '3 - Testes'
     needs: validacao
     runs-on: ubuntu-latest
+
     steps:
       - name: Obter codigo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+
       - name: Testar campos e cores configuraveis
         run: |
           grep -q 'id="nome"' index.html
@@ -58,11 +67,21 @@ jobs:
           grep -q -- '--cor-rodape:' style.css
           grep -q -- '--cor-botao:' style.css
           echo 'Testes basicos passaram.'
+
       - name: Separar os arquivos do site
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: |
           mkdir -p public
           cp index.html style.css public/
+
+          if [ -d imagens ]; then
+            cp -r imagens public/
+            echo 'Imagens adicionadas ao site.'
+          fi
+
+          echo 'Arquivos preparados para publicacao.'
+          find public -type f
+
       - name: Enviar site para publicacao
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v4
@@ -74,16 +93,20 @@ jobs:
     needs: testes
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+
     permissions:
       contents: read
       pages: write
       id-token: write
+
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
+
     steps:
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
+
       - name: Publicar no GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v4
