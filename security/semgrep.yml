@@ -1,0 +1,16 @@
+rules:
+  - id: html-http-resource
+    languages: [generic]
+    severity: ERROR
+    message: Recurso carregado via HTTP. Utilize HTTPS ou um caminho local.
+    pattern-regex: '(?is)<(?:script|iframe|img|link)\b[^>]*\b(?:src|href)\s*=\s*["\x27]?http://'
+  - id: html-http-form
+    languages: [generic]
+    severity: ERROR
+    message: Formulario envia dados via HTTP sem criptografia. Utilize HTTPS.
+    pattern-regex: '(?is)<form\b[^>]*\baction\s*=\s*["\x27]?http://'
+  - id: html-javascript-url
+    languages: [generic]
+    severity: ERROR
+    message: URL javascript detectada. Remova a execucao de codigo no atributo.
+    pattern-regex: '(?is)\b(?:href|src|action)\s*=\s*["\x27]?\s*javascript\s*:'
