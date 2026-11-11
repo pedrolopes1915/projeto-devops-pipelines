@@ -1,0 +1,12 @@
+# ruleid: html-http-resource
+<script src="http://example.invalid/app.js"></script>
+# ok: html-http-resource
+<script src="https://example.invalid/app.js"></script>
+# ruleid: html-http-form
+<form action="http://example.invalid/enviar"></form>
+# ok: html-http-form
+<form action="#"></form>
+# ruleid: html-javascript-url
+<a href="javascript:alert(1)">Teste</a>
+# ok: html-javascript-url
+<a href="/">Inicio</a>
