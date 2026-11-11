@@ -1,0 +1,6 @@
+# Alertas bloqueantes para este site estatico. Demais alertas permanecem WARN.
+10040	FAIL	(Conteudo misto)
+10023	FAIL	(Mensagens de erro com informacoes de depuracao)
+10024	FAIL	(Informacoes sensiveis na URL)
+10025	FAIL	(Informacoes sensiveis no Referer)
+10105	FAIL	(Autenticacao fraca)
